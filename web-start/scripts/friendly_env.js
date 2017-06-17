@@ -17,7 +17,7 @@ function FriendlyChat() {
 
   this.signOutButton.addEventListener('click', this.signOut.bind(this));
   this.signInButton.addEventListener('click', this.signIn.bind(this));
-  
+
   this.initFirebase();
 }
 
@@ -64,7 +64,7 @@ FriendlyChat.prototype.onAuthStateChanged = function(user) {
     this.signInButton.setAttribute('hidden', 'true');
 
     // We load currently existing chant messages.
-    // this.loadMessages();
+    this.loadTrashBins();
 
     // We save the Firebase Messaging Device token and enable notifications.
     // this.saveMessagingDeviceToken();
@@ -96,6 +96,25 @@ FriendlyChat.prototype.checkSignedInWithMessage = function() {
   }
   return false;
 }
+
+FriendlyChat.prototype.loadTrashBins = function() {
+  // Reference to the /messages/ database path.
+  this.trashCansRef = this.database.ref('trash_cans');
+  // Make sure we remove all previous listeners.
+  this.trashCansRef.off();
+
+  // Loads the last 12 messages and listen for new ones.
+  var setTrashCan = function(data) {
+    var val = data.val();
+    console.log(val.lat);
+    console.log(val.lng);
+    console.log(val.types);
+    // this.displayTrashCan(val.lat, val.lng, val.type);
+  }.bind(this);
+  this.trashCansRef.on('child_added', setTrashCan);
+  this.trashCansRef.on('child_changed', setTrashCan);
+};
+
 
 window.onload = function() {
   window.friendlyChat = new FriendlyChat();
