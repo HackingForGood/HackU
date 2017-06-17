@@ -4,11 +4,11 @@ var icons = {
     name: 'Trash',
     icon: iconBase + 'trash.png'
   },
-  2: {
+  3: {
     name: 'Compost',
     icon: iconBase + 'Compost.png'
   },
-  3: {
+  2: {
     name: 'Recycle',
     icon: iconBase + 'Recycle.png'
   }
