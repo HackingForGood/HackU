@@ -124,21 +124,23 @@ main {
 .itb-logo {
   font-family: 'Lobster Two'; 
 }
+
+/* floating button locations */
+
 #submitnew {
-  color:white;
-  font-weight: bold;
   position: absolute;
-  right: 20px;
+  right: 45px;
   bottom: 30px;
-  background-color: #009688;
-  padding: 15px;
 }
+
 #reporterror {
-  color:white;
-  font-weight: bold;
   position: absolute;
-  right: 20px;
-  bottom: 90px;
-  background-color: #009688;
-  padding: 15px;
+  right: 45px;
+  bottom: 80px;
+}
+
+/* form */
+.trashtype-checkboxes-ul {
+  list-style: none;
+  padding-left: none;
 }

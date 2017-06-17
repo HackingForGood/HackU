@@ -88,32 +88,51 @@
       </div>
     </div>
 
-
     <dialog id="dialog" class="mdl-dialog">
-      <h3 class="mdl-dialog__title">MDL Dialog</h3>
+      <h3 class="mdl-dialog__title">Submit new trash location</h3>
       <div class="mdl-dialog__content">
         <p>
-          This is an example of the Material Design Lite dialog component.
-          Please use responsibly.
+          Submit a publicly-accessible trash can locations and its type:
         </p>
+        <form>
+          <ul class="trashtype-checkboxes-ul">
+            <li>
+              <label for="chkbox1" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                <input type="checkbox" id="chkbox1" class="mdl-checkbox__input">
+                <span class="mdl-checkbox__label">TRASH</span>
+              </label>
+            </li>
+            <li>
+              <label for="chkbox2" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                <input type="checkbox" id="chkbox2" class="mdl-checkbox__input">
+                <span class="mdl-checkbox__label">RECYCLE</span>
+              </label>
+            </li>
+            <li>
+              <label for="chkbox3" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                <input type="checkbox" id="chkbox3" class="mdl-checkbox__input">
+                <span class="mdl-checkbox__label">COMPOST</span>
+              </label>
+            </li>
+          </ul>
+        </form>
       </div>
       <div class="mdl-dialog__actions">
         <button type="button" class="mdl-button">Close</button>
-        <button type="button" class="mdl-button" disabled>Disabled action</button>
+        <button type="button" class="mdl-button">Submit</button>
       </div>
     </dialog>
 
     <dialog id="dialog-error" class="mdl-dialog">
-      <h3 class="mdl-dialog__title">Error Dialog</h3>
+      <h3 class="mdl-dialog__title">Report errors</h3>
       <div class="mdl-dialog__content">
         <p>
-          This is an example of the Material Design Lite dialog component.
-          Please use responsibly.
+          If you found error in our database, please email us at info@xxxxx.com. 
         </p>
       </div>
       <div class="mdl-dialog__actions">
         <button type="button" class="mdl-button">Close</button>
-        <button type="button" class="mdl-button" disabled>Disabled action</button>
+        <!-- <button type="button" class="mdl-button" disabled>Disabled action</button> -->
       </div>
     </dialog>
 
@@ -121,16 +140,18 @@
   <main class="mdl-layout__content mdl-color--grey-100">
 
    <div id="map"></div>
-	 <script src="scripts/firebasemap.js"></script>
+	<script src="scripts/firebasemap.js"></script>
 	<script src="scripts/friendly_env.js"></script>
-	
-  <button name="submitnew" id="submitnew" class="mdl-button mdl-button--raised mdl-js-button dialog-button">Show Dialog</button>
-	
-  <button name="reporterror" id="reporterror" class="button button--report dialog-error">Report Error</button>
+
   <script src="scripts/modals.js"></script>
+
+  <button name="submitnew" id="submitnew" class="mdl-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent dialog-button">Submit A Bin</button>
+	
+  <button name="reporterror" id="reporterror" class="mdl-button mdl-button--raised mdl-js-ripple-effect dialog-error">Report Error</button>
+
   </main>
 </div>
-
+    <script src="scripts/firebasemap.js"></script>
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuK3X6ewQo8LDjf2Iu3CXvJpNhq4JiRlY
         &libraries=drawing&callback=initMap">
