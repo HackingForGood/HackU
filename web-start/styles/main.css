@@ -127,16 +127,10 @@ main {
 
 /* floating button locations */
 
-#submitnew {
-  position: absolute;
-  right: 45px;
-  bottom: 30px;
-}
-
 #reporterror {
   position: absolute;
   right: 45px;
-  bottom: 80px;
+  bottom: 30px;
 }
 
 /* form */
