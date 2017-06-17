@@ -175,7 +175,7 @@ main, #messages-card {
   }
   #user-container {
     top: 72px;
-    background-color: rgb(3,155,229);
+    background-color: #009688;
     height: 38px;
     padding-top: 3px;
     padding-right: 2px;
@@ -196,4 +196,13 @@ main, #messages-card {
 .mdl-button .material-icons {
   top: -1px;
   margin-right: 5px;
+}
+#submitnew {
+  color:white;
+  font-weight: bold;
+  position: absolute;
+  right: 20px;
+  bottom: 30px;
+  background-color: #009688;
+  padding: 15px;
 }
