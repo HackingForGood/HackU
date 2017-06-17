@@ -1,0 +1,3 @@
+[submodule "friendlychat"]
+	path = friendlychat
+	url = https://github.com/firebase/friendlychat
