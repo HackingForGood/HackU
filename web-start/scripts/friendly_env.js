@@ -115,7 +115,27 @@ FriendlyChat.prototype.loadTrashBins = function() {
   this.trashCansRef.on('child_changed', setTrashCan);
 };
 
-
 window.onload = function() {
   window.friendlyChat = new FriendlyChat();
+};
+
+
+// Saves a new message on the Firebase DB.
+FriendlyChat.prototype.saveTrash = function(lat, lng, types) {
+  // Check that the user entered a message and is signed in.
+  if (lat && lng && types) {
+    var currentUser = this.auth.currentUser;
+    // Add a new message entry to the Firebase Database.
+    this.trashCansRef.push({
+      lat: lat,
+      lng: lng,
+      types: types,
+      name: currentUser.displayName,
+      photoUrl: currentUser.photoURL || '/images/profile_placeholder.png'
+    }).then(function() {
+      // Clear message text field and SEND button state.
+    }.bind(this)).catch(function(error) {
+      console.error('Error writing new message to Firebase Database', error);
+    });
+  }
 };
