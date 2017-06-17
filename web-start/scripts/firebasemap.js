@@ -18,6 +18,8 @@ function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 0, lng: 0},
     zoom: 3,
+    mapTypeControl: false,
+    fullscreenControl: false,
     styles: [
       {
         "elementType": "geometry",
@@ -108,6 +110,7 @@ function initMap() {
   });
   infoWindow = new google.maps.InfoWindow;
 
+  var iconBase = '/images/';
 	// Try HTML5 geolocation.
 	if (navigator.geolocation) {
 	  navigator.geolocation.getCurrentPosition(function(position) {
@@ -118,7 +121,8 @@ function initMap() {
 		var marker = new google.maps.Marker({
 		position: pos,
 		map: map,
-		title: 'You are here.'
+		title: 'You are here.',
+    icon:iconBase + 'you-are-here.png'
 		});
 		/*infoWindow.setPosition(pos);
 		infoWindow.setContent('You are here.');
@@ -132,7 +136,6 @@ function initMap() {
 	  // Browser doesn't support Geolocation
 	  handleLocationError(false, infoWindow, map.getCenter());
 	}
-  var iconBase = '/images/';
 
 
 
