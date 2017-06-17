@@ -153,18 +153,55 @@ function initMap() {
       zIndex: 1
     }
   });
-  drawingManager.setMap(map);
-  google.maps.event.addListener(drawingManager, 'overlaycomplete', function(marker) {
-    var lat = marker.overlay.getPosition().lat();
-    var lng = marker.overlay.getPosition().lng()
-    console.log(lat);
-    console.log(lng);
-    window.friendlyChat.saveTrash(lat, lng, [1,2,3]);
+  //drawingManager.setMap(map);
+  
+  map.addListener('click', function(e) {
+	  showDialog(e);
   });
+  
+  //google.maps.event.addListener(drawingManager, 'click', showDialog);
   window.map = map;
 }
-  
+ 
+function showDialog(e) {
+	var latLng = e.latLng;
+	console.log('Inside show dialog');
+	var dialog = document.querySelector('#dialog');
+	
+	if (! dialog.showModal) {
+      dialogPolyfill.registerDialog(dialog);
+    }
+	
+	dialog.querySelector('#close').addEventListener('click', function() {
+      dialog.close();
+    });
+	dialog.querySelector('#submit').addEventListener('click', function() {
+	  
+	var types = [];
+	if(dialog.querySelector("#chkbox1").checked) {
+		types.push[1];
+	}
+	if(dialog.querySelector("#chkbox2").checked) {
+		types.push[2];
+	}
+	if(dialog.querySelector("#chkbox1").checked) {
+		types.push[3];
+	}
+      addMarker(latLng, types );
+	  dialog.close();
+    });
+	
+	dialog.showModal();
+} 
 
+function addMarker(latLng, types) {
+	console.log('Inside add marker');
+	var lat = latLng.lat();
+    var lng = latLng.lng();
+    console.log(lat);
+    console.log(lng);
+    window.friendlyChat.saveTrash(lat, lng, types);
+}
   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 	infoWindow.setPosition(pos);
 	infoWindow.setContent(browserHasGeolocation ?
