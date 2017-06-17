@@ -106,8 +106,9 @@ function initMap() {
 		});
 		/*infoWindow.setPosition(pos);
 		infoWindow.setContent('You are here.');
-		infoWindow.open(map);
-		map.setCenter(pos);*/
+		infoWindow.open(map);*/
+		map.setCenter(pos);
+		map.setZoom(16);
 	  }, function() {
 		handleLocationError(true, infoWindow, map.getCenter());
 	  });
