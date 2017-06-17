@@ -4,11 +4,11 @@ var icons = {
     name: 'Trash',
     icon: iconBase + 'trash.png'
   },
-  3: {
+  2: {
     name: 'Compost',
     icon: iconBase + 'Compost.png'
   },
-  2: {
+  3: {
     name: 'Recycle',
     icon: iconBase + 'Recycle.png'
   }
@@ -127,13 +127,45 @@ FriendlyChat.prototype.loadTrashBins = function() {
     console.log(val.lng);
     console.log(val.types);
           
-    for (var i = val.types.length - 1; i >= 0; i--) {
-      var marker = new google.maps.Marker({
+    
+
+    if (val.types.length==2) {
+      var marker2_0 = new google.maps.Marker({
             position: new google.maps.LatLng(val.lat, val.lng),
-            icon: icons[val.types[i]].icon,
-            map: map
-          });
-}
+            icon: icons[val.types[0]].icon,
+            map: map});
+      var marker2_1 = new google.maps.Marker({
+            position: new google.maps.LatLng(val.lat+ 0.0043*2, val.lng + 0.0043*2),
+            icon: icons[val.types[1]].icon,
+            map: map});
+
+    }
+
+    else if (val.types.length==3) {
+      var marker3_0 = new google.maps.Marker({
+            position: new google.maps.LatLng(val.lat, val.lng),
+            icon: icons[val.types[0]].icon,
+            map: map});
+      var marker3_1 = new google.maps.Marker({
+            position: new google.maps.LatLng(val.lat+ 0.0043*2, val.lng + 0.0043*2),
+            icon: icons[val.types[1]].icon,
+            map: map});
+      var marker3_2 = new google.maps.Marker({
+            position: new google.maps.LatLng(val.lat+ 0.0043*4, val.lng + 0.0043*4),
+            icon: icons[val.types[2]].icon,
+            map: map});
+
+    }
+
+    else {
+      var marker1_0 = new google.maps.Marker({
+            position: new google.maps.LatLng(val.lat, val.lng),
+            icon: icons[val.types[0]].icon,
+            map: map});
+    }
+      
+
+
     // this.displayTrashCan(val.lat, val.lng, val.type);
   }.bind(this);
   this.trashCansRef.on('child_added', setTrashCan);
