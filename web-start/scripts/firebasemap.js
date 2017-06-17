@@ -121,8 +121,8 @@ function initMap() {
 		var marker = new google.maps.Marker({
 		position: pos,
 		map: map,
-		title: 'You are here.',
-    icon:iconBase + 'you-are-here.png'
+		title: 'You are here.'
+    
 		});
 		/*infoWindow.setPosition(pos);
 		infoWindow.setContent('You are here.');
