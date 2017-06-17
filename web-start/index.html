@@ -42,11 +42,17 @@
 
   <!-- Material Design Lite -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-indigo.min.css">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-orange.min.css">
   <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+   
+  <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+
 
   <!-- App Styling -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster+Two|Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
   <link rel="stylesheet" href="styles/main.css">
   
   <style type="text/css">
@@ -68,7 +74,7 @@
   <header class="mdl-layout__header mdl-color-text--white mdl-color--teal-800">
     <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
       <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
-        <h5><i class="material-icons">delete</i> In The Bin!</h5>
+        <h5 class="itb-logo"><i class="material-icons">delete</i> In The Bin!</h5>
       </div>
       <div id="user-container">
         <div hidden id="user-pic"></div>
@@ -81,28 +87,56 @@
         </button>
       </div>
     </div>
-  </header>
 
+
+    <dialog id="dialog" class="mdl-dialog">
+      <h3 class="mdl-dialog__title">MDL Dialog</h3>
+      <div class="mdl-dialog__content">
+        <p>
+          This is an example of the Material Design Lite dialog component.
+          Please use responsibly.
+        </p>
+      </div>
+      <div class="mdl-dialog__actions">
+        <button type="button" class="mdl-button">Close</button>
+        <button type="button" class="mdl-button" disabled>Disabled action</button>
+      </div>
+    </dialog>
+
+    <dialog id="dialog-error" class="mdl-dialog">
+      <h3 class="mdl-dialog__title">Error Dialog</h3>
+      <div class="mdl-dialog__content">
+        <p>
+          This is an example of the Material Design Lite dialog component.
+          Please use responsibly.
+        </p>
+      </div>
+      <div class="mdl-dialog__actions">
+        <button type="button" class="mdl-button">Close</button>
+        <button type="button" class="mdl-button" disabled>Disabled action</button>
+      </div>
+    </dialog>
+
+  </header>
   <main class="mdl-layout__content mdl-color--grey-100">
 
    <div id="map"></div>
-	/**
-     * The JavaScript code that creates the firebase map goes between the empty script tags below.
-     */
+	 <script src="scripts/firebasemap.js"></script>
 	<script src="scripts/friendly_env.js"></script>
-    <script src="scripts/firebasemap.js"></script>
 	
-  <button name="submitnew" id="submitnew" class="button button--submit">Submit New Location</button>
-  <button name="reporterror" id="reporterror" class="button button--report">Report Error</button>
+  <button name="submitnew" id="submitnew" class="mdl-button mdl-button--raised mdl-js-button dialog-button">Show Dialog</button>
+	
+  <button name="reporterror" id="reporterror" class="button button--report dialog-error">Report Error</button>
+  <script src="scripts/modals.js"></script>
   </main>
 </div>
 
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuK3X6ewQo8LDjf2Iu3CXvJpNhq4JiRlY
-        &libraries=visualization&callback=initMap">
+        &libraries=drawing&callback=initMap">
     </script>
-    
-
+	
+<div id="dialog" title="Dialog Title" style="display:none"> Some text</div> 
 <!-- Import and configure the Firebase SDK -->
 <!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
 <!-- If you do not want to serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup -->

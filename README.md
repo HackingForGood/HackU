@@ -1,18 +1,16 @@
-# Firebase Codelab: FriendlyChat
+# In The Bin: Crowd-Sourced Nearest Trash and Recycle locater
 
-This is the source code for the Firebase FriendlyChat codelab. It includes start and end versions of the
-code for Web, Android, Objective-C, Swift and Cloud Functions. To get started open the codelab instructions:
+**In the bin** is a location-based web application where users can submit locations of publicly-accessible trash and recycle bins near by. 
 
- - [Firebase Web Codelab](https://codelabs.developers.google.com/codelabs/firebase-web/).
- - [Firebase SDK for Cloud Functions Codelab](https://codelabs.developers.google.com/codelabs/firebase-cloud-functions/).
- - [Firebase Android Codelab](https://codelabs.developers.google.com/codelabs/firebase-android/).
- - [Firebase Swift Codelab](https://codelabs.developers.google.com/codelabs/firebase-ios-swift/).
- - [Firebase Objective-C Codelab](https://codelabs.developers.google.com/codelabs/firebase-ios-objc/).
+[Hacking for Good](https://www.meetup.com/hacking-for-good-2017/events/239012327/) 2017 hackathon on June 17, 2017 @ Harvard Innovation Labs.
+Submission by team HackU: 
+- Pankaj Bhambhani
+- Daniel Sam
+- Nitin Kishore
+- Daigo Fujiwara
 
+## Libraries used:
 
-## How to make contributions?
-Please read and follow the steps in the [CONTRIBUTING.md](CONTRIBUTING.md)
-
-
-## License
-See [LICENSE](LICENSE)
+ - [Firebase Web](https://codelabs.developers.google.com/codelabs/firebase-web/)
+ - [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/)
+ - [Material Design Lite](https://getmdl.io/started/index.html)

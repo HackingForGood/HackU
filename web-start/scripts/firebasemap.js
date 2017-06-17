@@ -1,3 +1,19 @@
+iconBase = '/images/'
+var icons = {
+  0: {
+    name: 'Trash',
+    icon: iconBase + 'trash.png'
+  },
+  1: {
+    name: 'Compost',
+    icon: iconBase + 'Compost.png'
+  },
+  2: {
+    name: 'Recycle',
+    icon: iconBase + 'Recycle.png'
+  }
+};
+
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 0, lng: 0},
@@ -82,7 +98,7 @@ function initMap() {
       },{
         "featureType": "water",
         "elementType": "geometry",
-        "stylers": [{"color": "#94bdbe"}]
+        "stylers": [{"color": "#96c3d6"}]
       },{
         "featureType": "water",
         "elementType": "labels.text.fill",
@@ -116,7 +132,38 @@ function initMap() {
 	  // Browser doesn't support Geolocation
 	  handleLocationError(false, infoWindow, map.getCenter());
 	}
-  }
+  var iconBase = '/images/';
+
+
+
+  var drawingManager = new google.maps.drawing.DrawingManager({
+    drawingMode: google.maps.drawing.OverlayType.MARKER,
+    drawingControl: true,
+    drawingControlOptions: {
+      position: google.maps.ControlPosition.TOP_CENTER,
+      drawingModes: ['marker']
+    },
+    markerOptions: {icon: iconBase + 'trash.png'},
+    circleOptions: {
+      fillColor: '#ffff00',
+      fillOpacity: 1,
+      strokeWeight: 5,
+      clickable: false,
+      editable: true,
+      zIndex: 1
+    }
+  });
+  drawingManager.setMap(map);
+  google.maps.event.addListener(drawingManager, 'overlaycomplete', function(marker) {
+    var lat = marker.overlay.getPosition().lat();
+    var lng = marker.overlay.getPosition().lng()
+    console.log(lat);
+    console.log(lng);
+    window.friendlyChat.saveTrash(lat, lng, [1,2,3]);
+  });
+  window.map = map;
+}
+  
 
   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 	infoWindow.setPosition(pos);

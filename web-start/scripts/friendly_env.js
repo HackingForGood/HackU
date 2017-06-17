@@ -1,3 +1,19 @@
+var iconBase = '/images/';
+var icons = {
+  0: {
+    name: 'Trash',
+    icon: iconBase + 'trash.png'
+  },
+  1: {
+    name: 'Compost',
+    icon: iconBase + 'Compost.png'
+  },
+  2: {
+    name: 'Recycle',
+    icon: iconBase + 'Recycle.png'
+  }
+};
+
 function FriendlyChat() {
   this.checkSetup();
     // Shortcuts to DOM Elements.
@@ -98,6 +114,7 @@ FriendlyChat.prototype.checkSignedInWithMessage = function() {
 }
 
 FriendlyChat.prototype.loadTrashBins = function() {
+  map = window.map;	
   // Reference to the /messages/ database path.
   this.trashCansRef = this.database.ref('trash_cans');
   // Make sure we remove all previous listeners.
@@ -109,6 +126,13 @@ FriendlyChat.prototype.loadTrashBins = function() {
     console.log(val.lat);
     console.log(val.lng);
     console.log(val.types);
+          
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(val.lat, val.lng),
+            icon: icons[0].icon,
+            map: map
+          });
+
     // this.displayTrashCan(val.lat, val.lng, val.type);
   }.bind(this);
   this.trashCansRef.on('child_added', setTrashCan);
