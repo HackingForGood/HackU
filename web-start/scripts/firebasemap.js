@@ -153,12 +153,18 @@ function initMap() {
       zIndex: 1
     }
   });
-  drawingManager.setMap(map);
-  google.maps.event.addListener(drawingManager, 'overlaycomplete', showDialog);
+  //drawingManager.setMap(map);
+  
+  map.addListener('click', function(e) {
+	  showDialog(e);
+  });
+  
+  //google.maps.event.addListener(drawingManager, 'click', showDialog);
   window.map = map;
 }
  
-function showDialog(marker) {
+function showDialog(e) {
+	var latLng = e.latLng;
 	console.log('Inside show dialog');
 	var dialog = document.querySelector('#dialog');
 	
@@ -181,17 +187,17 @@ function showDialog(marker) {
 	if(dialog.querySelector("#chkbox1").checked) {
 		types.push[3];
 	}
-      addMarker(marker, types );
+      addMarker(latLng, types );
 	  dialog.close();
     });
 	
 	dialog.showModal();
 } 
 
-function addMarker(marker, types) {
+function addMarker(latLng, types) {
 	console.log('Inside add marker');
-	var lat = marker.overlay.getPosition().lat();
-    var lng = marker.overlay.getPosition().lng()
+	var lat = latLng.lat();
+    var lng = latLng.lng();
     console.log(lat);
     console.log(lng);
     window.friendlyChat.saveTrash(lat, lng, types);
