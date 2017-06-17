@@ -6,11 +6,11 @@
       dialogPolyfill.registerDialog(dialog);
     }
     dialogButton.addEventListener('click', function() {
-       dialog.showModal();
+       //dialog.showModal();
     });
-    dialog.querySelector('button:not([disabled])').addEventListener('click', function() {
+    /*dialog.querySelector('button:not([disabled])').addEventListener('click', function() {
       dialog.close();
-    });
+    });*/
   }());
 
 

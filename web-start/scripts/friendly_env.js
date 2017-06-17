@@ -161,5 +161,6 @@ FriendlyChat.prototype.saveTrash = function(lat, lng, types) {
     }.bind(this)).catch(function(error) {
       console.error('Error writing new message to Firebase Database', error);
     });
+	console.log('Saved Trash');
   }
 };
