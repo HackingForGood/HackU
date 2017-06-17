@@ -82,7 +82,7 @@ function initMap() {
       },{
         "featureType": "water",
         "elementType": "geometry",
-        "stylers": [{"color": "#94bdbe"}]
+        "stylers": [{"color": "#96c3d6"}]
       },{
         "featureType": "water",
         "elementType": "labels.text.fill",
