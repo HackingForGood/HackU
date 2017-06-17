@@ -87,6 +87,36 @@
         </button>
       </div>
     </div>
+
+
+    <dialog id="dialog" class="mdl-dialog">
+      <h3 class="mdl-dialog__title">MDL Dialog</h3>
+      <div class="mdl-dialog__content">
+        <p>
+          This is an example of the Material Design Lite dialog component.
+          Please use responsibly.
+        </p>
+      </div>
+      <div class="mdl-dialog__actions">
+        <button type="button" class="mdl-button">Close</button>
+        <button type="button" class="mdl-button" disabled>Disabled action</button>
+      </div>
+    </dialog>
+
+    <dialog id="dialog-error" class="mdl-dialog">
+      <h3 class="mdl-dialog__title">Error Dialog</h3>
+      <div class="mdl-dialog__content">
+        <p>
+          This is an example of the Material Design Lite dialog component.
+          Please use responsibly.
+        </p>
+      </div>
+      <div class="mdl-dialog__actions">
+        <button type="button" class="mdl-button">Close</button>
+        <button type="button" class="mdl-button" disabled>Disabled action</button>
+      </div>
+    </dialog>
+
   </header>
   <main class="mdl-layout__content mdl-color--grey-100">
 
@@ -95,25 +125,9 @@
      * The JavaScript code that creates the firebase map goes between the empty script tags below.
      */
     <script src="scripts/firebasemap.js"></script>
+  <button name="submitnew" id="submitnew" class="mdl-button mdl-button--raised mdl-js-button dialog-button">Show Dialog</button>
 	
-  <button name="submitnew" id="submitnew" data-target="modal1" class="button button--submit mdl-button">Submit New Location</button>
-
-  <dialog class="mdl-dialog">
-    <h4 class="mdl-dialog__title">Allow data collection?</h4>
-    <div class="mdl-dialog__content">
-      <p>
-        Allowing us to collect data will let us get you the information you want faster.
-      </p>
-    </div>
-    <div class="mdl-dialog__actions">
-      <button type="button" class="mdl-button">Agree</button>
-      <button type="button" class="mdl-button close">Disagree</button>
-    </div>
-  </dialog>
-
-          
-
-  <button name="reporterror" id="reporterror" class="button button--report">Report Error</button>
+  <button name="reporterror" id="reporterror" class="button button--report dialog-error">Report Error</button>
   </main>
 </div>
 

@@ -1,11 +1,31 @@
-// var dialog = document.querySelector('dialog');
-// var showDialogButton = document.querySelector('#show-dialog');
-// if (! dialog.showModal) {
-//   dialogPolyfill.registerDialog(dialog);
-// }
-// showDialogButton.addEventListener('click', function() {
-//   dialog.showModal();
-// });
-// dialog.querySelector('.close').addEventListener('click', function() {
-//   dialog.close();
-// });
+  (function() {
+    'use strict';
+    var dialogButton = document.querySelector('.dialog-button');
+    var dialog = document.querySelector('#dialog');
+    if (! dialog.showModal) {
+      dialogPolyfill.registerDialog(dialog);
+    }
+    dialogButton.addEventListener('click', function() {
+       dialog.showModal();
+    });
+    dialog.querySelector('button:not([disabled])').addEventListener('click', function() {
+      dialog.close();
+    });
+  }());
+
+
+
+    (function() {
+    'use strict';
+    var dialogButton = document.querySelector('.dialog-error');
+    var dialog = document.querySelector('#dialog-error');
+    if (! dialog.showModal) {
+      dialogPolyfill.registerDialog(dialog);
+    }
+    dialogButton.addEventListener('click', function() {
+       dialog.showModal();
+    });
+    dialog.querySelector('button:not([disabled])').addEventListener('click', function() {
+      dialog.close();
+    });
+  }());
