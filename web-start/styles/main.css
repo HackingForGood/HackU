@@ -206,3 +206,12 @@ main, #messages-card {
   background-color: #009688;
   padding: 15px;
 }
+#reporterror {
+  color:white;
+  font-weight: bold;
+  position: absolute;
+  right: 20px;
+  bottom: 90px;
+  background-color: #009688;
+  padding: 15px;
+}
