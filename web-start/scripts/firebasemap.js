@@ -179,14 +179,18 @@ function showDialog(e) {
 	  
 	var types = [];
 	if(dialog.querySelector("#chkbox1").checked) {
-		types.push[1];
+		console.log('checked');
+		types.push(0);
 	}
 	if(dialog.querySelector("#chkbox2").checked) {
-		types.push[2];
+		console.log('checked');
+		types.push(1);
 	}
-	if(dialog.querySelector("#chkbox1").checked) {
-		types.push[3];
+	if(dialog.querySelector("#chkbox3").checked) {
+		console.log('checked');
+		types.push(2);
 	}
+	console.log('types is ' + types)
       addMarker(latLng, types );
 	  dialog.close();
     });
