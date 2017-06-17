@@ -1,14 +1,14 @@
 var iconBase = '/images/';
 var icons = {
-  0: {
+  1: {
     name: 'Trash',
     icon: iconBase + 'trash.png'
   },
-  1: {
+  2: {
     name: 'Compost',
     icon: iconBase + 'Compost.png'
   },
-  2: {
+  3: {
     name: 'Recycle',
     icon: iconBase + 'Recycle.png'
   }
@@ -127,12 +127,13 @@ FriendlyChat.prototype.loadTrashBins = function() {
     console.log(val.lng);
     console.log(val.types);
           
-        var marker = new google.maps.Marker({
+    for (var i = val.types.length - 1; i >= 0; i--) {
+      var marker = new google.maps.Marker({
             position: new google.maps.LatLng(val.lat, val.lng),
-            icon: icons[0].icon,
+            icon: icons[val.types[i]].icon,
             map: map
           });
-
+}
     // this.displayTrashCan(val.lat, val.lng, val.type);
   }.bind(this);
   this.trashCansRef.on('child_added', setTrashCan);

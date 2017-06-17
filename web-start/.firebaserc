@@ -1,6 +1,7 @@
 {
   "projects": {
     "production": "hackingforgood-bba02",
-    "InTheBin": "hackingforgood-bba02"
+    "InTheBin": "hackingforgood-bba02",
+    "InTheBox": "hackingforgood-bba02"
   }
 }
