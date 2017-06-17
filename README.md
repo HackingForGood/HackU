@@ -2,7 +2,10 @@
 
 https://hackingforgood-bba02.firebaseapp.com/
 
-(or shortened link bit.ly/inthebinapp )
+(or shortened link http://bit.ly/inthebinapp )
+
+![appicon](https://user-images.githubusercontent.com/846229/27256498-9a53f61e-5384-11e7-9056-d2b49cda5746.png)
+
 
 **In the bin** is a location-based web application where users can submit locations of publicly-accessible trash and recycle bins near by. 
 
