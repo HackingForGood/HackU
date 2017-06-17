@@ -73,7 +73,7 @@ FriendlyChat.prototype.loadMessages = function() {
   // Loads the last 12 messages and listen for new ones.
   var setMessage = function(data) {
     var val = data.val();
-    this.displayMessage(data.key, val.name, val.text, val.photoUrl, val.imageUrl);
+    this.displayMessage(data.key, val.name, val.text, val.photoUrl, val.imageUrl, val.lat, val.lng, val.type);
   }.bind(this);
   this.messagesRef.limitToLast(12).on('child_added', setMessage);
   this.messagesRef.limitToLast(12).on('child_changed', setMessage);
@@ -87,6 +87,9 @@ FriendlyChat.prototype.saveMessage = function(e) {
     var currentUser = this.auth.currentUser;
     // Add a new message entry to the Firebase Database.
     this.messagesRef.push({
+      lat: -40.00,
+      lng: 50,
+      type: [1,2,3],
       name: currentUser.displayName,
       text: this.messageInput.value,
       photoUrl: currentUser.photoURL || '/images/profile_placeholder.png'
@@ -243,13 +246,16 @@ FriendlyChat.MESSAGE_TEMPLATE =
       '<div class="spacing"><div class="pic"></div></div>' +
       '<div class="message"></div>' +
       '<div class="name"></div>' +
+      '<div class="lat"></div>' +
+      '<div class="lng"></div>' +
+      '<div class="type"></div>' +
     '</div>';
 
 // A loading image URL.
 FriendlyChat.LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif';
 
 // Displays a Message in the UI.
-FriendlyChat.prototype.displayMessage = function(key, name, text, picUrl, imageUri) {
+FriendlyChat.prototype.displayMessage = function(key, name, text, picUrl, imageUri, lat, lng, type) {
   var div = document.getElementById(key);
   // If an element for that message does not exists yet we create it.
   if (!div) {
@@ -262,6 +268,12 @@ FriendlyChat.prototype.displayMessage = function(key, name, text, picUrl, imageU
   if (picUrl) {
     div.querySelector('.pic').style.backgroundImage = 'url(' + picUrl + ')';
   }
+  if(lat && lng && type){
+    div.querySelector('.lat').textContent = lat;  
+    div.querySelector('.lng').textContent = lng;
+    div.querySelector('.type').textContent = type; 
+  }
+
   div.querySelector('.name').textContent = name;
   var messageElement = div.querySelector('.message');
   if (text) { // If the message is text.
