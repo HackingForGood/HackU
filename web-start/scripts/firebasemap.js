@@ -180,15 +180,15 @@ function showDialog(e) {
 	var types = [];
 	if(dialog.querySelector("#chkbox1").checked) {
 		console.log('checked');
-		types.push(0);
+		types.push(1);
 	}
 	if(dialog.querySelector("#chkbox2").checked) {
 		console.log('checked');
-		types.push(1);
+		types.push(2);
 	}
 	if(dialog.querySelector("#chkbox3").checked) {
 		console.log('checked');
-		types.push(2);
+		types.push(3);
 	}
 	console.log('types is ' + types)
       addMarker(latLng, types );
