@@ -12,9 +12,13 @@ https://hackingforgood-bba02.firebaseapp.com/
 [Hacking for Good](https://www.meetup.com/hacking-for-good-2017/events/239012327/) 2017 hackathon on June 17, 2017 @ Harvard Innovation Labs.
 Submission by team HackU: 
 - Pankaj Bhambhani
-- Daniel Sam
-- Nitin Kishore
+- Nitin Kishore Sai Samala
+- Daniel Sam Pete Thiyagu
 - Daigo Fujiwara
+
+## Presentation slides
+
+https://docs.google.com/presentation/d/100pHPRdu0_BviOYKNsm83SPsRO9klxhmizqk1lga0lc/edit?usp=sharing
 
 ## Libraries used:
 
